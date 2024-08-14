@@ -1,16 +1,22 @@
 "use client";
 
-import Image from "next/image";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Logo from "@/public/images/logo.png";
 import LogoBranco from "@/public/images/logo-branco.png";
+
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 import ListButton from "@/components/ListButton";
 import { Separator } from "@/components/ui/separator";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+import dynamic from 'next/dynamic'
+
 export default function Home() {
+
+    const ImageWithNoSSR = dynamic(() => import('next/image'), {
+        ssr: false,
+    });
 
     const useThemeDetector = () => {
         const getCurrentTheme = () => {
@@ -39,7 +45,7 @@ export default function Home() {
 
         return isDarkTheme;
     }
-    
+
     const isDarkTheme = useThemeDetector();
 
     return (
@@ -48,7 +54,12 @@ export default function Home() {
                 <Card className="w-full max-h-fit max-w-md min-h-60">
                     <CardHeader className="select-none p-3">
                         <Link href="https://equilibrioflorestal.com.br">
-                            <Image src={isDarkTheme ? LogoBranco : Logo} alt="Equilibrio Florestal logo" className="rounded-md object-cover" priority />
+                            <ImageWithNoSSR 
+                            src={isDarkTheme ? LogoBranco : Logo} 
+                            alt="Equilibrio Florestal logo" 
+                            className="rounded-md object-cover" 
+                            fetchPriority="high" 
+                            priority/>
                         </Link>
                     </CardHeader>
                     <CardContent className="pb-5">
