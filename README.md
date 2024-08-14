@@ -1,22 +1,30 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Iniciar aplicação
 
-First, run the development server:
-
+Para iniciar uma nova instância da aplicação no **terminal** do sistema operacional.
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <url-repositorio>
+
+cd ./portal-equilibrio-florestal
+
+npm i
+
+npm run build
+
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Para iniciar uma nova instância via **docker**.
+```bash
+git clone <url-repositorio>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+cd ./portal-equilibrio-florestal
+
+docker build -t <nome-instancia> .
+
+docker run -it -p 4000:3000 <nome-instancia>
+```
 
 ## Imagens
 
