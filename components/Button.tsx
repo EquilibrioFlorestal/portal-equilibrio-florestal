@@ -16,7 +16,7 @@ export default function PortalButton({ title, url, description, tooltipSide = "r
                 <Tooltip>
                     <TooltipTrigger asChild>
                         <Link href={url} className="w-full">
-                            <Button className="w-full" variant={"accent"}>
+                            <Button className="w-full" variant={"default"}>
                                 {title}
                             </Button>
                         </Link>

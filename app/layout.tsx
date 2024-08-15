@@ -8,15 +8,21 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Portal",
-  description: "Portal de acesso Equilíbrio Florestal",
+  description: "Portal Equilíbrio Florestal",
+  icons: {
+    icon: 'favicon.ico',
+    apple: 'favicon.ico',
+    shortcut: 'favicon.ico'
+  }
 };
 
-export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
+export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-      <meta name="theme-color" media="(prefers-color-scheme: light)" content="#EBEBEB" />
-      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#EBEBEB" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange >
